@@ -14,10 +14,9 @@ export class barcodeService {
   // tocken de la api de barcode!
   private apiKey: string = 't9lgb3s8x8c5i3su75oxsht1lfvmyy';
   base: string = 'https://api.barcodelookup.com/v3';
+  proxyUrl: string = 'https://cors-anywhere.herokuapp.com/';
 
-  public resultados: Product[] = [];
-
-  getProducts(): void {
+  getProducts(): Observable<Product> {
     // httparams
     const params = new HttpParams()
       .set('barcode', '9780140157376')
@@ -26,14 +25,12 @@ export class barcodeService {
 
     // Headers
     let headers = new HttpHeaders()
-      .set('Content-Type', 'application/json');
+      .set('Content-Type', 'application/json')
+      .set('Access-Control-Allow-Origin', '*/*');
 
-    this.http
-      .get<Product>(`${this.base}/products`, { params , headers }  )
-      .subscribe((resp) => {
-        console.log(resp);
-
-        // this.resultados = resp;
-      });
+    return this.http.get<Product>(`${this.proxyUrl}${this.base}/products`, {
+      params,
+      headers,
+    });
   }
 }
