@@ -11,24 +11,35 @@ import { environment } from 'src/env/environment.development';
 export class barcodeService {
   constructor(private http: HttpClient) {}
 
-  getProducts(): Observable<Product> {
+  getProducts(input: string): Observable<Product> {
     // httparams
     const params = new HttpParams()
-      .set('barcode', '9780140157376')
+      // .set('barcode', '9780140157376')
       .set('formatted', 'y')
+      .set('manufacturer', 'Samsung')
       .set('key', environment.apiKey2);
 
     // Headers
     let headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
       .set('Access-Control-Allow-Origin', '*/*');
-
-    return this.http.get<Product>(
-      `${environment.proxyUrl}${environment.baseUrl}/products`,
-      {
-        params,
-        headers,
-      }
-    );
+    if (input) {
+      params.append('search', `${input}`);
+      return this.http.get<Product>(
+        `${environment.proxyUrl}${environment.baseUrl}/products`,
+        {
+          params,
+          headers,
+        }
+      );
+    } else {
+      return this.http.get<Product>(
+        `${environment.proxyUrl}${environment.baseUrl}/products`,
+        {
+          params,
+          headers,
+        }
+      );
+    }
   }
 }

@@ -10,13 +10,16 @@ import { Product } from 'src/app/core/models/product.model';
 })
 export class ProductPageComponent {
   products!: Product;
-  
+  // search!: any;
+
   constructor(private productService: barcodeService) {}
-  buscar() {
-    this.productService.getProducts().subscribe((product) => {
+  buscar(event: any) {
+    this.productService.getProducts(event.target.value).subscribe((product) => {
       this.products = product;
 
-      console.log(this.products.products);
+      // console.log(this.products.products);
+      console.log(event.target.value);
+      console.log(product.products[0].images[0]);
     });
   }
 }

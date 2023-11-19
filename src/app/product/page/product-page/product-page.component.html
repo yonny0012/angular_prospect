@@ -3,31 +3,36 @@
     <div class="col">
       <input
         type="text"
+        (input)="buscar($event)"
         class="form-control"
         placeholder="Products search ..."
       />
     </div>
     <div class="col">
-      <input class="btn btn-dark " type="button" value="Search" (click)="buscar()" />
+      <div class="card w-25 h-auto">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="page_info"></mat-icon>
+
+      </div>
+      <!-- <input class="btn btn-dark " type="button" value="Search" (click)="buscar()" /> -->
     </div>
   </div>
   <hr />
   <div class="row" *ngIf="products; else warning">
     <div class="col">
-      <div class="card ">
+      <div class="card">
         <div class="card-body">
-          <img [src]="products.products[0].images[0]" [alt]='products.products[0].description'>
+          <img
+            class="img-fluid w-auto"
+            [src]="products.products[0].images[0]"
+            [alt]="products.products[0].description"
+          />
         </div>
-
       </div>
       <!-- <div **ngFor="let item of products"> -->
       <!-- </div> -->
     </div>
   </div>
   <ng-template #warning>
-  <div class="alert alert-info">
-    Esere por favor ...
-  </div>
-</ng-template>
-
+    <div class="alert alert-info">Esere por favor ...</div>
+  </ng-template>
 </div>
