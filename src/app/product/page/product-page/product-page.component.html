@@ -1,38 +1,14 @@
-<div class="container">
-  <div class="row p-3">
-    <div class="col">
-      <input
-        type="text"
-        (input)="buscar($event)"
-        class="form-control"
-        placeholder="Products search ..."
-      />
+<div class="container p-[100px] m-auto max-w-max">
+  <div class="row-auto">
+    <div>
+      <mat-icon mat-font-icon="fa-icon" class="fa"></mat-icon>
     </div>
-    <div class="col">
-      <div class="card w-25 h-auto">
-        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="page_info"></mat-icon>
 
-      </div>
-      <!-- <input class="btn btn-dark " type="button" value="Search" (click)="buscar()" /> -->
-    </div>
+    <input
+    type="text"
+    (input)="buscar($event)"
+    class="form-control"
+    placeholder="Products search ..."
+    />
   </div>
-  <hr />
-  <div class="row" *ngIf="products; else warning">
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
-          <img
-            class="img-fluid w-auto"
-            [src]="products.products[0].images[0]"
-            [alt]="products.products[0].description"
-          />
-        </div>
-      </div>
-      <!-- <div **ngFor="let item of products"> -->
-      <!-- </div> -->
-    </div>
-  </div>
-  <ng-template #warning>
-    <div class="alert alert-dark ">Esere por favor ...</div>
-  </ng-template>
 </div>
