@@ -10,10 +10,18 @@ import { Product } from 'src/app/core/models/product.model';
 })
 export class ProductPageComponent {
   products!: Product;
+
+  isActive: boolean = false;
   // search!: any;
 
   constructor(private productService: barcodeService) {}
   buscar(event: any) {
+    if (event.target.value != '') {
+      this.isActive = true;
+    } else {
+      this.isActive = false;
+    }
+
     /* this.productService.getProducts(event.target.value).subscribe((product) => {
       this.products = product;
 
@@ -21,5 +29,8 @@ export class ProductPageComponent {
       console.log(event.target.value);
       console.log(product.products[0].images[0]);
     }); */
+  }
+  clean():void{
+    
   }
 }

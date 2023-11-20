@@ -1,14 +1,58 @@
-<div class="container p-[100px] m-auto max-w-max">
-  <div class="row-auto">
-    <div>
-      <mat-icon mat-font-icon="fa-icon" class="fa"></mat-icon>
+<div
+  class="container flex flex-col bg-gray-700 w-full p-3 items-center rounded-md "
+>
+  <div class="">
+    <h3 class="text-cyan-500">Search Product</h3>
+  </div>
+  <div
+    [ngClass]="[!isActive?'bg-slate-800 w-full h-14 flex flex-row items-center justify-around rounded-lg shadow-md shadow-cyan-500':
+    'bg-slate-800 w-full h-[30rem] flex flex-row items-center justify-around rounded-lg shadow-md shadow-cyan-500'
+    ]"
+  >
+    <div class="p-2 flex flex-row m-3">
+      <a href="http://">
+        <img
+          src="../../../../assets/barcode.svg"
+          alt="barcode-logo"
+          class="w-10"
+        />
+      </a>
+      <!-- <h3 class="text-white p-2">search product</h3> -->
     </div>
+    <div
+      class="p-1 m-3 rounded-md flex items-center justify-between w-[100%] bg-slate-50"
+    >
+      <div class="flex-none">
+        <img src="../../../../assets/search.svg" alt="search-img" class="w-5" />
+      </div>
+      <div class="grow m-1">
+        <form>
+          <input
+            type="text"
+            name="search-product"
+            id="search"
+            class="bg-transparent w-[100%]"
+            (input)="buscar($event)"
+            (change)="buscar($event)"
+          />
+        </form>
+      </div>
+      <div  [ngClass]="[isActive? 'active flex-none' : 'flex-none inactive']" (click)="clean()">
+        <img
+          src="../../../../assets/cancel-search.svg"
+          alt="search-img"
+          class="w-5"
+        />
+      </div>
+    </div>
+  </div>
 
-    <input
+  <div class="">
+    <!-- <input
     type="text"
     (input)="buscar($event)"
     class="form-control"
     placeholder="Products search ..."
-    />
+    /> -->
   </div>
 </div>
