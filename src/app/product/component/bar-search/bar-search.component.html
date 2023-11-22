@@ -19,42 +19,39 @@
     <div
       class="p-1 m-3 h-8 rounded-md flex items-center justify-between w-[100%] bg-slate-50"
     >
-      <div class="flex-none ml-1">
-        <img src="../../../../assets/search.svg" alt="search-img" class="w-4" />
-      </div>
+      <app-button
+        class="flex-none ml-1 w-4"
+        img="../../../../assets/search.svg"
+        alt="search-img"
+      ></app-button>
       <div class="grow ml-3">
         <form>
           <input
             type="text"
-            name="search-product"
+            name="value"
             placeholder="search procuct"
             id="search"
             class="bg-transparent w-[100%]"
-            (input)="buscar($event)"
-            (change)="buscar($event)"
+            (input)="search($event)"
+            [(ngModel)]="value"
           />
         </form>
       </div>
       <!-- <app-button class=""></app-button> -->
-      <div
-        [ngClass]="[isActive ? 'active flex-none mr-1' : 'flex-none inactive']"
+      <app-button
+        [ngClass]="[
+          isActive ? 'active flex-none mr-1 w-5' : 'flex-none inactive w-5'
+        ]"
+        img="../../../../assets/cancel-search.svg"
+        alt="cancel-search-img"
         (click)="clean()"
-      >
-        <img
-          src="../../../../assets/cancel-search.svg"
-          alt="search-img"
-          class="w-5"
-        />
-      </div>
-      <div
-        Class="flex-none mr-1"
-      >
-        <img
-          src="../../../../assets/filter.svg"
-          alt="search-img"
-          class="w-5"
-        />
-      </div>
+      ></app-button>
+      <app-button
+        (click)="hideHilters()"
+        class="flex-none mr-1 w-5"
+        img="../../../../assets/filter.svg"
+        alt="filter-search-img"
+      ></app-button>
     </div>
   </div>
   <app-show-sesults *ngIf="isActive" class="mb-2 mt-0"></app-show-sesults>

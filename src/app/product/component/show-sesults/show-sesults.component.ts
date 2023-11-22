@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-show-sesults',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./show-sesults.component.css']
 })
 export class ShowSesultsComponent {
-
+  @Input() isHidden?: boolean;
 }

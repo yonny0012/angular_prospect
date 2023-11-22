@@ -14,3 +14,15 @@ body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+input:focus-visible {
+    outline: -webkit-focus-ring-color auto 0px;
+}
+
+.active {
+    visibility: visible;
+}
+
+.inactive {
+    visibility: hidden;
+}

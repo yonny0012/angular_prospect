@@ -1,0 +1,23 @@
+<div
+  class="p-1 m-2 h-8 rounded-md flex items-center justify-between w-auto bg-slate-50"
+>
+  <div class="rounded-md w-auto h-8 flex flex-row items-center">
+    <form>
+      <input
+        type="text"
+        name="filter-product"
+        [placeholder]="placeHolder"
+        [id]="idFilter"
+        class="bg-transparent w-full ml-2"
+        (input)="setEmptyState($event)"
+        [(ngModel)]="value"
+      />
+    </form>
+    <app-button
+      [ngClass]="[!isEmpty ? 'active mr-1 w-5' : 'inactive w-5']"
+      (click)="clean()"
+      img="../../../../assets/cancel-search.svg"
+      alt="cansel-filter-image"
+    ></app-button>
+  </div>
+</div>

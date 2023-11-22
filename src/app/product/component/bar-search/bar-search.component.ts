@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import { Product } from 'src/app/core/models/product.model';
-import { barcodeService } from 'src/app/core/service/barcode.service';
+import { Product } from 'src/app/core/interfaces/product.interface';
+// import { barcodeService } from 'src/app/core/service/barcode.service';
 
 @Component({
   selector: 'app-bar-search',
@@ -10,12 +10,13 @@ import { barcodeService } from 'src/app/core/service/barcode.service';
 })
 export class BarSearchComponent {
   products!: Product;
-
+  value: string = 'qwe';
   isActive: boolean = false;
-  // search!: any;
+  isVisibleFilters: boolean = false;
 
   constructor(/* private productService: barcodeServiceService */) {}
-  buscar(event: any) {
+  
+  search(event: any | string) {
     if (event.target.value != '') {
       this.isActive = true;
     } else {
@@ -30,5 +31,10 @@ export class BarSearchComponent {
       console.log(product.products[0].images[0]);
     }); */
   }
-  clean(): void {}
+  hideHilters() {
+    this.isVisibleFilters = !this.isVisibleFilters;
+  }
+  clean(): void {
+    this.value = '';
+  }
 }

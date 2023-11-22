@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { barcodeService } from 'src/app/core/service/barcode.service';
-import { Product } from 'src/app/core/models/product.model';
+import { Product } from 'src/app/core/interfaces/product.interface';
 
 @Component({
   selector: 'app-product-page',
