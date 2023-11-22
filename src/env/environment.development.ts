@@ -4,3 +4,19 @@ export const environment = {
   apiKey2: '6yrfp8oav75oow6k9r8avvh8zj5f59',
   proxyUrl: 'https://cors-anywhere.herokuapp.com/',
 };
+export let apiParameters: {
+  barcode: '';
+  mpn: '';
+  asin: '';
+  title: '';
+  category: '';
+  manufacturer: '';
+  brand: '';
+  search: '';
+  metadata: '';
+  cursor: '';
+  page: '';
+  geo: ['us', 'gb', 'ca', 'eu'];
+  formatted: '';
+  key: '';
+};

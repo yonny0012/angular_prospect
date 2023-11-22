@@ -1,0 +1,17 @@
+:host {
+    width: 100%;
+}
+
+input:focus-visible {
+    outline: -webkit-focus-ring-color auto 0px;
+}
+
+.active {
+    visibility: visible;
+    z-index: 2;
+    height: auto;
+}
+
+.inactive {
+    visibility: hidden;
+}

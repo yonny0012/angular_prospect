@@ -2,11 +2,22 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductPageComponent } from './page/product-page/product-page.component';
 
-import { MatIconModule } from '@angular/material/icon';
+import { BarSearchComponent } from './component/bar-search/bar-search.component';
+import { ShowSesultsComponent } from './component/show-sesults/show-sesults.component';
+import { FilterButtonComponent } from './component/filter-button/filter-button.component';
+import { ProductComponent } from './component/product/product.component';
+import { ButtonComponent } from '../component/button/button.component';
 
 @NgModule({
-  declarations: [ProductPageComponent],
-  imports: [CommonModule, MatIconModule],
-  exports: [ProductPageComponent, MatIconModule],
+  declarations: [
+    ProductPageComponent,
+    BarSearchComponent,
+    ShowSesultsComponent,
+    FilterButtonComponent,
+    ProductComponent,
+    ButtonComponent
+  ],
+  imports: [CommonModule],
+  exports: [ProductPageComponent],
 })
 export class ProductModule {}
