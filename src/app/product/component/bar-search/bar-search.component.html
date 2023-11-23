@@ -31,28 +31,32 @@
             name="value"
             placeholder="search procuct"
             id="search"
-            class="bg-transparent w-[100%]"
+            class="bg-transparent w-full"
             (input)="search($event)"
             [(ngModel)]="value"
           />
         </form>
       </div>
       <!-- <app-button class=""></app-button> -->
-      <app-button
+      <div
         [ngClass]="[
-          isActive ? 'active flex-none mr-1 w-5' : 'flex-none inactive w-5'
+          isActive ? 'active flex flex-row' : 'inactive'
         ]"
-        img="../../../../assets/cancel-search.svg"
-        alt="cancel-search-img"
-        (click)="clean()"
-      ></app-button>
-      <app-button
-        (click)="hideHilters()"
-        class="flex-none mr-1 w-5"
-        img="../../../../assets/filter.svg"
-        alt="filter-search-img"
-      ></app-button>
+      >
+        <app-button
+          Class="flex-none mr-1 w-5"
+          img="../../../../assets/cancel-search.svg"
+          alt="cancel-search-img"
+          (click)="clean()"
+        ></app-button>
+        <app-button
+          (click)="hideHilters()"
+          class="flex-none mr-1 w-5"
+          img="../../../../assets/filter.svg"
+          alt="filter-search-img"
+        ></app-button>
+      </div>
     </div>
   </div>
-  <app-show-sesults *ngIf="isActive" class="mb-2 mt-0"></app-show-sesults>
+  <app-show-sesults [data]="products" [isHidden]="isVisibleFilters" *ngIf="isActive" class="mb-2 mt-0"></app-show-sesults>
 </div>

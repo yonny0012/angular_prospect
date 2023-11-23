@@ -16,30 +16,19 @@ export class barcodeService {
     const params = new HttpParams()
       // .set('barcode', '9780140157376')
       .set('formatted', 'y')
-      .set('manufacturer', 'Samsung')
-      .set('key', environment.apiKey2);
+      .set('key', environment.apiKey)
+      .set('search', `${input}`);
 
     // Headers
-    let headers = new HttpHeaders()
+    const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
       .set('Access-Control-Allow-Origin', '*/*');
-    if (input) {
-      params.append('search', `${input}`);
-      return this.http.get<Product>(
-        `${environment.proxyUrl}${environment.baseUrl}/products`,
-        {
-          params,
-          headers,
-        }
-      );
-    } else {
-      return this.http.get<Product>(
-        `${environment.proxyUrl}${environment.baseUrl}/products`,
-        {
-          params,
-          headers,
-        }
-      );
-    }
+    return this.http.get<Product>(
+      `${environment.proxyUrl}${environment.baseUrl}/products`,
+      {
+        params,
+        headers,
+      }
+    );
   }
 }

@@ -1,8 +1,8 @@
 <div class="flex flex-col">
-  <app-filter-bar></app-filter-bar>
+  <app-filter-bar *ngIf="isHidden"></app-filter-bar>
   <div class="flex flex-row justify-center">
-    <app-product></app-product>
-    <app-product></app-product>
-    <app-product></app-product>
+    <div *ngFor="let prod of data.values()">
+      <app-product [product]="prod"></app-product>
+    </div>
   </div>
 </div>

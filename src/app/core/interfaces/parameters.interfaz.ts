@@ -18,11 +18,12 @@ export interface apiParams {
 export interface apiRequiredParameters {
   barcode: string;
   manufacturer: string;
+  brand: string;
+  category: string;
+  
   mpn: string;
   asin: string;
   title: string;
-  category: string;
-  brand: string;
   search: string;
   metadata: string;
   cursor: string;
